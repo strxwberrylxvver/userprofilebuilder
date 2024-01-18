@@ -6,7 +6,7 @@ The workshops will set you exercises that will use concepts introduced at the le
   
 In the process you can get up to 5% per workshop. You will develop the code for all these workshops in this repository.  This will be fully assessed at the end of the workshops, however, there will be mark for your correct engagement in the process. Completing the Workshop Exercises on an incremental basis, correct use of KUGitlab and appropriate and frequent commits and commit messages as you progress.
 
-# : User Profile Builder App Start Code 
+# User Profile Builder App Start Code 
 
 To use this code you should clone this project and run the sample code as covered in (Using KUGitlab - Access and Workflow)[https://kingstonuniversity.sharepoint.com/:p:/s/CI5105Privatemst/EXORk0ko9Y5EiZaPDW8x0vcBQ4ltw2hfrlRG3kj9UimQSg?e=6lyeEW] 
 
