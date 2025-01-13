@@ -1,6 +1,6 @@
 # SwingPorfolio Workshops - User Profile Builder App
 
-In TB2 you will have 4 workshops (TB2 Exercises) that lead you through the development of a basic Swing App that can be the launch point of your own TB2 Coursework App (after reading week) as in the (CI5105 TB2 Week 1 - Reintroduction Lecture)[https://canvas.kingston.ac.uk/courses/26279/pages/software-application-development-2023-4]
+In TB2 you will have 4 workshops (TB2 Exercises) that lead you through the development of a basic Swing App that can be the launch point of your own TB2 Coursework App (after reading week) as in the (CI5105 TB2 Week 2 - Reintroduction Lecture and Workshop)[https://canvas.kingston.ac.uk/courses/29973/pages/swing-portfolio-user-profile-builder-workshop-1]
  
 The workshops will set you exercises that will use concepts introduced at the lectures and will allow you to develop a 'User Profile Builder' App that cn be the launch point for your Coursework App that will be introdcued after reading week. 
   
@@ -8,7 +8,7 @@ In the process you can get up to 5% per workshop. You will develop the code for 
 
 # User Profile Builder App Start Code 
 
-To use this code you should clone this project and run the sample code as covered in (Using KUGitlab - Access and Workflow)[https://kingstonuniversity.sharepoint.com/:p:/s/CI5105Privatemst/EXORk0ko9Y5EiZaPDW8x0vcBQ4ltw2hfrlRG3kj9UimQSg?e=6lyeEW] 
+To use this code you should clone this project and run the sample code as covered in (Using KUGitlab - Introduction Gitlab Workflow)[https://canvas.kingston.ac.uk/courses/29973/pages/unit-1-week-12] 
 
 To get this sample code onto your local machine you will need to:
 
