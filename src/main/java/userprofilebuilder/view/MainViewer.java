@@ -4,11 +4,17 @@
  */
 package userprofilebuilder.view;
 
-/**
- *
- * @author 
- * This might be useful for defining you Main App Viewer e.g. a JFrame
- */
+import java.awt.BorderLayout;
+import javax.swing.JFrame;
+
+
 public class MainViewer {
-    
+    private JFrame myframe;
+    public MainViewer(){
+    myframe = new JFrame("my first window <3");
+    myframe.setBounds(400,0,400,400);
+    myframe.setLayout(new BorderLayout());
+    myframe.setVisible(true);
+    myframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+}
 }
