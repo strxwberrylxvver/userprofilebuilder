@@ -7,12 +7,10 @@ package userprofilebuilder;
 import userprofilebuilder.view.MainViewer;
 
 public class App {
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         MainViewer mv = new MainViewer();
+     //   for (Name n: (username.csv).Names)
+     //   {create one row( 2 buttons and one radiobutton) for each name}
     }
     
 }
