@@ -18,6 +18,8 @@ import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
+import userprofilebuilder.App;
+
 
 public class MainViewer {
     private JFrame myframe;
@@ -25,24 +27,21 @@ public class MainViewer {
     
     public MainViewer(){
     myframe = new JFrame("user profile builder <3");
-    myframe.setSize(400,400);
+    myframe.setSize(500,400);
     myframe.setLayout(new BorderLayout());
     
     JPanel mypanel = new JPanel();
     mypanel.setBackground(Color.PINK);
-    mypanel.setLayout(new GridLayout(1,2));
+    mypanel.setLayout(new GridLayout(0,3));
     mypanel.setBorder(BorderFactory.createTitledBorder("Name"));
-    
-    JButton edt = new JButton("Edit");
-    JButton dlt = new JButton("Delete");
-    JRadioButton bu = new JRadioButton();
-    JLabel un = new JLabel("usernames");
-    
-    mypanel.add(bu,BorderLayout.EAST);
-    mypanel.add(un,BorderLayout.CENTER);
-    mypanel.add(edt,BorderLayout.CENTER);
-    mypanel.add(dlt,BorderLayout.WEST);
-    
+
+    for (String s : App.names)
+    {
+        mypanel.add(new JRadioButton(s));
+        mypanel.add(new JButton("Edit"));
+        mypanel.add(new JButton("Delete"));
+    }
+
     myframe.add(mypanel,BorderLayout.CENTER);
     myframe.setVisible(true);
     myframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

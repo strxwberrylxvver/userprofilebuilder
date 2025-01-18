@@ -5,12 +5,12 @@
 package userprofilebuilder;
 
 import userprofilebuilder.view.MainViewer;
+import java.util.Arrays;
 
 public class App {
+    public static String[] names = {"David Livingstone","Dave Livingstone","DextroseDave"};
     public static void main(String[] args) {
         MainViewer mv = new MainViewer();
-     //   for (Name n: (username.csv).Names)
-     //   {create one row( 2 buttons and one radiobutton) for each name}
     }
     
 }
