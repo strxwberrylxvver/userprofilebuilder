@@ -4,8 +4,6 @@
  */
 package userprofilebuilder;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.util.ArrayList;
 import userprofilebuilder.model.UserGroup;
 import userprofilebuilder.view.MainViewer;
@@ -13,7 +11,9 @@ import userprofilebuilder.view.MainViewer;
 public class App {
     public static ArrayList<String> names = new ArrayList<>();
     public static void main(String[] args) {
-        UserGroup.readCsv("username.csv");
+    //    UserGroup.readCsv("username.csv");
+        UserGroup.readSuperCsv("userprofile.csv");
+
         MainViewer mv = new MainViewer();
 
     }

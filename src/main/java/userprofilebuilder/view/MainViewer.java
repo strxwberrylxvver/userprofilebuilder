@@ -5,17 +5,13 @@
 package userprofilebuilder.view;
 
 import java.awt.*;
-import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
-import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
-import userprofilebuilder.App;
 import userprofilebuilder.model.User;
 import userprofilebuilder.model.UserGroup;
 

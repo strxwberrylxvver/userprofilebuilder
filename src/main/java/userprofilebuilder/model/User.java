@@ -5,19 +5,45 @@
 package userprofilebuilder.model;
 public class User {
     
-    private String name;
+    private String UserProfileID;
+    private String Title;
+    private String Name;
+    private String EMail;
+
+    public String getUserProfileID() {
+        return UserProfileID;
+    }
+
+    public void setUserProfileID(String UserProfileID) {
+        this.UserProfileID = UserProfileID;
+    }
+
+    public String getTitle() {
+        return Title;
+    }
+
+    public void setTitle(String Title) {
+        this.Title = Title;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String Name) {
+        this.Name = Name;
+    }
+
+    public String getEMail() {
+        return EMail;
+    }
+
+    public void setEMail(String EMail) {
+        this.EMail = EMail;
+    }
 
     public User(String name) {
-        this.name = name;
-    }
-    
-    
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+        this.Name = name;
     }
 
     
