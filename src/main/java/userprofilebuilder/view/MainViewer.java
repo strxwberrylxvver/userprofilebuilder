@@ -16,6 +16,8 @@ import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
 import userprofilebuilder.App;
+import userprofilebuilder.model.User;
+import userprofilebuilder.model.UserGroup;
 
 
 
@@ -33,10 +35,10 @@ public class MainViewer {
     mypanel.setLayout(new GridLayout(3,1));
     mypanel.setBorder(BorderFactory.createTitledBorder("Name"));
     
-    for (String s : App.names) {
+    for (User u: UserGroup.getUsers()) {
         JPanel rows = new JPanel();
        // rows.setBackground(Color.PINK);
-        JRadioButton j = new JRadioButton(s);
+        JRadioButton j = new JRadioButton(u.getName());
         j.setPreferredSize(new Dimension(150,30));
         rows.add(j);
         JButton e = new JButton("Edit");

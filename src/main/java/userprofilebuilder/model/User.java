@@ -3,12 +3,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package userprofilebuilder.model;
-
-/**
- *
- * @author 
- * This is model class may be handy for putting data relevant to the User Profile in
- */
 public class User {
+    
+    private String name;
+
+    public User(String name) {
+        this.name = name;
+    }
+    
+    
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     
 }

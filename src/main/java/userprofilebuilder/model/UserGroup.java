@@ -4,11 +4,36 @@
  */
 package userprofilebuilder.model;
 
-/**
- *
- * @author 
- * This is model class may be handy for putting data relevant groups of User Profiles in {many Users]
- */
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.ArrayList;
+import static userprofilebuilder.App.names;
+
 public class UserGroup {
     
+    private static ArrayList<User> users = new ArrayList<>();
+
+    public static ArrayList<User> getUsers() {
+        return users;
+    }
+
+    public static void setUsers(ArrayList<User> users) {
+        UserGroup.users = users;
+    }
+public static void readCsv(String filename)
+    {
+        try(
+                BufferedReader br = new BufferedReader(new FileReader(filename));)
+        {
+            while(br.ready())
+            {
+                String name = br.readLine();
+                users.add(new User(name));
+            }
+        }
+        catch(Exception e)
+        {
+                ;
+                }
+    }
 }
