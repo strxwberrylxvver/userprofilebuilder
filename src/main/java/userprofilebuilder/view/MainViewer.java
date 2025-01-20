@@ -26,10 +26,12 @@ public class MainViewer {
     private JTextArea yap;
     
     public MainViewer(){
-    myframe = new JFrame("user profile builder <3");
+    myframe = new JFrame("User Profile Builder");
     myframe.setSize(500,300);
     myframe.setLayout(new BorderLayout());
 
+    JTabbedPane tabs = new JTabbedPane();
+    
     JPanel mypanel = new JPanel();
  //   mypanel.setBackground(Color.PINK);
     mypanel.setLayout(new GridLayout(3,1));
@@ -39,10 +41,10 @@ public class MainViewer {
         JPanel rows = new JPanel();
        // rows.setBackground(Color.PINK);
         JRadioButton j = new JRadioButton(u.getName());
-        j.setPreferredSize(new Dimension(150,30));
+        j.setPreferredSize(new Dimension(130,30));
         rows.add(j);
         JButton e = new JButton("Edit");
-        e.setPreferredSize(new Dimension(70,25));
+        e.setPreferredSize(new Dimension(65,25));
         rows.add(e);
         JButton d = new JButton("Delete");
         d.setPreferredSize(new Dimension(70,25));
@@ -50,8 +52,8 @@ public class MainViewer {
         rows.repaint();
         mypanel.add(rows,BorderLayout.CENTER);
     }
-    
-    myframe.add(mypanel,BorderLayout.CENTER);
+    tabs.add(mypanel,"User Name");
+    myframe.add(tabs,BorderLayout.CENTER);
     myframe.setVisible(true);
     myframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
