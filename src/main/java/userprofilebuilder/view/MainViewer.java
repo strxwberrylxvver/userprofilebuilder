@@ -18,37 +18,37 @@ import javax.swing.JButton;
 import userprofilebuilder.App;
 
 
+
 public class MainViewer {
     private JFrame myframe;
     private JTextArea yap;
     
     public MainViewer(){
     myframe = new JFrame("user profile builder <3");
-    myframe.setSize(500,400);
+    myframe.setSize(500,300);
     myframe.setLayout(new BorderLayout());
 
     JPanel mypanel = new JPanel();
-    mypanel.setBackground(Color.PINK);
-    mypanel.setLayout(new GridLayout(0,3));
+ //   mypanel.setBackground(Color.PINK);
+    mypanel.setLayout(new GridLayout(3,1));
     mypanel.setBorder(BorderFactory.createTitledBorder("Name"));
-
-    JPanel panel2 = new JPanel();
-
+    
     for (String s : App.names) {
-    //   mypanel.add(new JRadioButton(s));
+        JPanel rows = new JPanel();
+       // rows.setBackground(Color.PINK);
         JRadioButton j = new JRadioButton(s);
-        j.setPreferredSize(new Dimension(100,50));
-        mypanel.add(j,BorderLayout.CENTER);
-    //    mypanel.add(new JButton("Edit"));
+        j.setPreferredSize(new Dimension(150,30));
+        rows.add(j);
         JButton e = new JButton("Edit");
-        e.setPreferredSize(new Dimension(100,50));
-        mypanel.add(e,BorderLayout.CENTER);
-    //    mypanel.add(new JButton("Delete"));
+        e.setPreferredSize(new Dimension(70,25));
+        rows.add(e);
         JButton d = new JButton("Delete");
-        d.setPreferredSize(new Dimension(100,50));
-        mypanel.add(d,BorderLayout.CENTER);
+        d.setPreferredSize(new Dimension(70,25));
+        rows.add(d);
+        rows.repaint();
+        mypanel.add(rows,BorderLayout.CENTER);
     }
-
+    
     myframe.add(mypanel,BorderLayout.CENTER);
     myframe.setVisible(true);
     myframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
