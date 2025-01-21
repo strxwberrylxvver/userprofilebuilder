@@ -19,23 +19,6 @@ public class UserGroup {
     public static void setUsers(ArrayList<User> users) {
         UserGroup.users = users;
     }
-    /*
-public static void readCsv(String filename)
-    {
-        try(
-                BufferedReader br = new BufferedReader(new FileReader(filename));)
-        {
-            while(br.ready())
-            {
-                String name = br.readLine();
-                users.add(new User(name));
-            }
-        }
-        catch(Exception e)
-        {
-                e.printStackTrace();
-                }
-    }*/
 
 public static void readSuperCsv(String filename)
 {
