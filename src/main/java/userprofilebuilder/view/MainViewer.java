@@ -7,12 +7,8 @@ package userprofilebuilder.view;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.BorderFactory;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
-import javax.swing.JRadioButton;
-import javax.swing.JButton;
+import javax.swing.*;
+
 import userprofilebuilder.model.User;
 import userprofilebuilder.model.UserGroup;
 
@@ -81,5 +77,6 @@ public class MainViewer implements ActionListener {
     public void actionPerformed(ActionEvent e)
     {
        System.out.println(e.getActionCommand());
+        JOptionPane.showInputDialog("Enter New Text");
     }
 }
