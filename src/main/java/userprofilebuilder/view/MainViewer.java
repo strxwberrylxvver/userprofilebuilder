@@ -77,6 +77,12 @@ public class MainViewer implements ActionListener {
     public void actionPerformed(ActionEvent e)
     {
        System.out.println(e.getActionCommand());
-        JOptionPane.showInputDialog("Enter New Text");
+        String input = JOptionPane.showInputDialog(null,"Enter New Text",e.getActionCommand());
+        
+       if(input !=null)
+        {System.out.println("input: "+ input);}
+        else
+        {System.out.println("User has cancelled the input");
+                }
+        }
     }
-}
