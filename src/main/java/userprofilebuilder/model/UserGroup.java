@@ -5,7 +5,9 @@
 package userprofilebuilder.model;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 
 public class UserGroup {
@@ -19,11 +21,10 @@ public class UserGroup {
     public static void setUsers(ArrayList<User> users) {
         UserGroup.users = users;
     }
-
 public static void readSuperCsv(String filename)
 {
     try(
-                BufferedReader br = new BufferedReader(new FileReader(filename));)
+                BufferedReader br = new BufferedReader(new FileReader(filename)))
         {
             while(br.ready())
             {
@@ -38,7 +39,19 @@ public static void readSuperCsv(String filename)
         }
         catch(Exception e)
         {
-              ;
-                }
+              e.printStackTrace();
+        }
 }
+    public void writeSuperCsv(String filename)
+    {
+        try(
+                BufferedWriter bw = new BufferedWriter(new FileWriter(filename)))
+        {
+            bw.write("what");
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
 }

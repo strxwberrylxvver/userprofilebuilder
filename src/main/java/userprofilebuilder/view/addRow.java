@@ -10,11 +10,12 @@ import userprofilebuilder.model.UserGroup;
 
 
 public class addRow implements ActionListener {
-
+    String value = "";
     public  addRow(String attribute, JPanel panel, int jsize)
     {
+
         for (User u: UserGroup.getUsers()) {
-            String value = "";
+        //    String value = "";
             if ("name".equals(attribute))
             {value = u.getName();}
             else if ("title".equals(attribute))
@@ -31,6 +32,7 @@ public class addRow implements ActionListener {
             e.setPreferredSize(new Dimension(65, 25));
             e.addActionListener(this);
             e.setActionCommand(value);
+            e.setActionCommand(j.getText());
             rows1.add(e);
             JButton d = new JButton("Delete");
             d.setPreferredSize(new Dimension(70, 25));
@@ -39,12 +41,19 @@ public class addRow implements ActionListener {
             panel.add(rows1, BorderLayout.CENTER);
         }
     }
+
     @Override
     public void actionPerformed(ActionEvent e)
     {
         String input = JOptionPane.showInputDialog(null,"Enter New Text",e.getActionCommand());
         System.out.println(input);
-        if (input != null) {System.out.println("User input: " + input);}
+
+        if (input != null){
+            JButton button = (JButton) e.getSource();
+            JPanel parentPanel = (JPanel) button.getParent();
+            JRadioButton radioButton = (JRadioButton) parentPanel.getComponent(0);
+            radioButton.setText(input);
+            System.out.println("User input: " + input);}
         else {System.out.println("User has cancelled");}
 
     }
