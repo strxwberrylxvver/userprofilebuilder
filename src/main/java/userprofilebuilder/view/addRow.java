@@ -11,8 +11,6 @@ import userprofilebuilder.model.UserGroup;
 
 public class addRow implements ActionListener {
     String value = "";
-    JRadioButton j;
-    User u;
     
     public  addRow(String attribute, JPanel panel, int jsize)
     {
