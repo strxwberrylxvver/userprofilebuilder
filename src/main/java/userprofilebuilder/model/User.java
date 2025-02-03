@@ -49,7 +49,8 @@ public class User {
     @Override
     public String toString()
     {
-        return "User{" + "name = " + Name + "}";
+        return   UserProfileID + "\n{" + "name = " + Name + "\n" + 
+                "title = " + Title + "\n" + "email address = " + EMail+"}";
     }
     
 }
