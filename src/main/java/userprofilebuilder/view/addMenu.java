@@ -7,10 +7,14 @@ package userprofilebuilder.view;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import userprofilebuilder.model.User;
+import userprofilebuilder.model.UserGroup;
 
 public class addMenu extends JMenuBar implements ActionListener{
     JMenu fileMenu;
@@ -37,6 +41,20 @@ public class addMenu extends JMenuBar implements ActionListener{
         switch(e.getActionCommand()){
             case "OpenFile":
                 System.out.println("Open File");
+                JFileChooser chooser = new JFileChooser();
+                FileNameExtensionFilter filter = new FileNameExtensionFilter(
+                        "CSV Files", "csv");
+                chooser.setFileFilter(filter);
+                int returnVal = chooser.showOpenDialog(null);
+                if(returnVal == JFileChooser.APPROVE_OPTION)
+                {
+                    System.out.println("You chose to open this file: " + 
+                            chooser.getSelectedFile().getName());
+                    for (User u : UserGroup.getUsers())
+                    {
+                        System.out.println(u);
+                    }
+                }
                 break;
             case "QuitFile":
                 System.out.println("Quit");

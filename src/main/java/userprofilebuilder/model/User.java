@@ -45,6 +45,11 @@ public class User {
     public User(String name) {
         this.Name = name;
     }
-
+    
+    @Override
+    public String toString()
+    {
+        return "User{" + "name = " + Name + "}";
+    }
     
 }
