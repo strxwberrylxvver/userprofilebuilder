@@ -42,12 +42,16 @@ public static void readSuperCsv(String filename)
               e.printStackTrace();
         }
 }
-    public void writeSuperCsv(String filename)
+    public static void writeSuperCsv(String filename)
     {
         try(
                 BufferedWriter bw = new BufferedWriter(new FileWriter(filename)))
         {
-            bw.write("what");
+            for (User u: users)
+            {
+            bw.write(u.getUserProfileID() + "," + u.getTitle() + "," + u.getName() + "," + u.getEMail());
+            bw.newLine();
+            }
         }
         catch(Exception e)
         {

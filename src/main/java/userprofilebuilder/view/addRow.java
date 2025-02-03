@@ -11,11 +11,13 @@ import userprofilebuilder.model.UserGroup;
 
 public class addRow implements ActionListener {
     String value = "";
+    JRadioButton j;
+    User u;
+    
     public  addRow(String attribute, JPanel panel, int jsize)
     {
 
         for (User u: UserGroup.getUsers()) {
-        //    String value = "";
             if ("name".equals(attribute))
             {value = u.getName();}
             else if ("title".equals(attribute))
@@ -31,7 +33,6 @@ public class addRow implements ActionListener {
             JButton e = new JButton("Edit");
             e.setPreferredSize(new Dimension(65, 25));
             e.addActionListener(this);
-            e.setActionCommand(value);
             e.setActionCommand(j.getText());
             rows1.add(e);
             JButton d = new JButton("Delete");
@@ -54,7 +55,31 @@ public class addRow implements ActionListener {
             JRadioButton radioButton = (JRadioButton) parentPanel.getComponent(0);
             radioButton.setText(input);
             button.setActionCommand(radioButton.getText());
-            System.out.println("User input: " + input);}
+            System.out.println("User input: " + input);
+            
+            for (User u: UserGroup.getUsers())
+            {
+                if (u.getName().equals(e.getActionCommand()))
+                {
+                    u.setName(input);
+                }
+                
+                if (u.getEMail().equals(e.getActionCommand()))
+                {
+                    u.setEMail(input);
+                }
+                
+                if (u.getUserProfileID().equals(e.getActionCommand()))
+                {
+                    u.setUserProfileID(input);
+                }
+                if (u.getTitle().equals(e.getActionCommand()))
+                {
+                    u.setTitle(input);
+                }            
+            }
+            UserGroup.writeSuperCsv("userprofile.csv");
+        }
         else {System.out.println("User has cancelled");}
 
     }
