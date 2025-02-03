@@ -56,19 +56,16 @@ public class addRow implements ActionListener {
             radioButton.setText(input);
             button.setActionCommand(radioButton.getText());
             System.out.println("User input: " + input);
-            
             for (User u: UserGroup.getUsers())
             {
                 if (u.getName().equals(e.getActionCommand()))
                 {
                     u.setName(input);
-                }
-                
+                }     
                 if (u.getEMail().equals(e.getActionCommand()))
                 {
                     u.setEMail(input);
                 }
-                
                 if (u.getUserProfileID().equals(e.getActionCommand()))
                 {
                     u.setUserProfileID(input);
