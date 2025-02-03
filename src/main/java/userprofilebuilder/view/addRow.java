@@ -53,6 +53,7 @@ public class addRow implements ActionListener {
             JPanel parentPanel = (JPanel) button.getParent();
             JRadioButton radioButton = (JRadioButton) parentPanel.getComponent(0);
             radioButton.setText(input);
+            button.setActionCommand(radioButton.getText());
             System.out.println("User input: " + input);}
         else {System.out.println("User has cancelled");}
 
