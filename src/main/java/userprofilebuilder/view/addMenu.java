@@ -50,7 +50,7 @@ public class addMenu extends JMenuBar implements ActionListener{
                 {
                     System.out.println("You chose to open this file: " + 
                             chooser.getSelectedFile().getName());
-                    for (User u : UserGroup.getUsers())
+                    for (User u : UserGroup.getInstance().getUsers())
                     {
                         System.out.println(u);
                     }

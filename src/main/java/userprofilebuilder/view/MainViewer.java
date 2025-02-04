@@ -13,8 +13,15 @@ import userprofilebuilder.model.User;
 import userprofilebuilder.model.UserGroup;
 
 public class MainViewer extends JFrame {
+private static MainViewer instance;
 
-    public MainViewer() {
+    public static MainViewer getInstance(){
+        if (instance == null)
+        {instance = new MainViewer();
+        }
+        return instance;
+    }
+    private MainViewer() {
         this.setTitle("User Profile Builder");
         this.setSize(500, 300);
         this.setLayout(new BorderLayout());

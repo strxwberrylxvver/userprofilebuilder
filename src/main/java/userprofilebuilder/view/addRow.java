@@ -15,7 +15,7 @@ public class addRow implements ActionListener {
     public  addRow(String attribute, JPanel panel, int jsize)
     {
 
-        for (User u: UserGroup.getUsers()) {
+        for (User u: UserGroup.getInstance().getUsers()) {
             if ("name".equals(attribute))
             {value = u.getName();}
             else if ("title".equals(attribute))
@@ -54,7 +54,7 @@ public class addRow implements ActionListener {
             radioButton.setText(input);
             button.setActionCommand(radioButton.getText());
             System.out.println("User input: " + input);
-            for (User u: UserGroup.getUsers())
+            for (User u: UserGroup.getInstance().getUsers())
             {
                 if (u.getName().equals(e.getActionCommand()))
                 {
@@ -73,7 +73,7 @@ public class addRow implements ActionListener {
                     u.setTitle(input);
                 }            
             }
-            UserGroup.writeSuperCsv("userprofile.csv");
+            UserGroup.getInstance().writeSuperCsv("userprofile.csv");
         }
         else {System.out.println("User has cancelled");}
 

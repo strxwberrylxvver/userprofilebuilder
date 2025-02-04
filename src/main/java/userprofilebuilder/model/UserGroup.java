@@ -12,16 +12,26 @@ import java.util.ArrayList;
 
 public class UserGroup {
     
-    private static ArrayList<User> users = new ArrayList<>();
+    private ArrayList<User> users = new ArrayList<>();
+    private static UserGroup instance;
     
-    public static ArrayList<User> getUsers() {
-        return users;
+    private UserGroup(){    
+    }
+    
+    public static UserGroup getInstance(){
+        if (instance == null){
+            instance =  new UserGroup();
+        }
+        return instance;
+    }
+    public ArrayList<User> getUsers() {
+        return this.users;
     }
 
-    public static void setUsers(ArrayList<User> users) {
-        UserGroup.users = users;
+    public void setUsers(ArrayList<User> users) {
+        this.users = users;
     }
-public static void readSuperCsv(String filename)
+public void readSuperCsv(String filename)
 {
     try(
                 BufferedReader br = new BufferedReader(new FileReader(filename)))
@@ -42,7 +52,7 @@ public static void readSuperCsv(String filename)
               e.printStackTrace();
         }
 }
-    public static void writeSuperCsv(String filename)
+    public void writeSuperCsv(String filename)
     {
         try(
                 BufferedWriter bw = new BufferedWriter(new FileWriter(filename)))

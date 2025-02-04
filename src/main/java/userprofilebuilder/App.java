@@ -11,8 +11,8 @@ import userprofilebuilder.view.MainViewer;
 public class App {
     public static ArrayList<String> names = new ArrayList<>();
     public static void main(String[] args) {
-        UserGroup.readSuperCsv("userprofile.csv");
-        MainViewer mv = new MainViewer();
+        UserGroup.getInstance().readSuperCsv("userprofile.csv");
+        MainViewer mv = MainViewer.getInstance();
 
     }
     
