@@ -23,7 +23,7 @@ private static MainViewer instance;
     }
     private MainViewer() {
         this.setTitle("User Profile Builder");
-        this.setSize(500, 300);
+        this.setSize(500, 400);
         this.setLayout(new BorderLayout());
 
         JTabbedPane tabs = new JTabbedPane();

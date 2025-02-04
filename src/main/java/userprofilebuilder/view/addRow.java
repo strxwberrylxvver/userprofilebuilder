@@ -11,13 +11,14 @@ import userprofilebuilder.model.UserGroup;
 
 public class addRow implements ActionListener {
     String value = "";
-    User user;
+    User u;
+
     
     public  addRow(String attribute, JPanel panel, int jsize)
     {
-        this.user = user;
 
         for (User u: UserGroup.getInstance().getUsers()) {
+            this.u = u;
             if ("name".equals(attribute))
             {value = u.getName();}
             else if ("title".equals(attribute))
@@ -25,8 +26,8 @@ public class addRow implements ActionListener {
             else if ("email".equals(attribute))
             {value = u.getEMail();}
             else {value = "";}
-
             JPanel rows1 = new JPanel();
+            rows1.setBorder(BorderFactory.createTitledBorder(u.getUserProfileID()));
             JRadioButton j = new JRadioButton(value);
             j.setPreferredSize(new Dimension(jsize, 30));
             rows1.add(j);
@@ -52,9 +53,28 @@ public class addRow implements ActionListener {
             int response = JOptionPane.showConfirmDialog(null, "Would you like to delete?");
             if (response == JOptionPane.YES_OPTION)
             {
-                UserGroup.getInstance().getUsers().remove(user);
-                System.out.println(UserGroup.getInstance().getUsers().remove(user));
-            }
+                JButton button = (JButton) e.getSource();
+                JPanel parentPanel = (JPanel) button.getParent();
+                JRadioButton radioButton = (JRadioButton) parentPanel.getComponent(0);
+                String userProfileID = radioButton.getText();
+                UserGroup.getInstance().getUsers().removeIf(u -> u.getUserProfileID().equals(userProfileID));
+                System.out.println("User deleted: " + userProfileID);
+                JPanel panel = (JPanel) parentPanel.getParent();
+               // UserGroup.getInstance()
+
+
+            
+            
+//                  for (User u : UserGroup.getInstance().getUsers()) {
+//                  if (u.getUserProfileID().equals(radioButton.getText())) {
+//                       UserGroup.getInstance().getUsers().remove(u);
+//                  }}
+//                  parentPanel.removeAll();
+//                  parentPanel.revalidate();
+//                  parentPanel.repaint();
+//                  System.out.println("User deleted: " + u.getUserProfileID());
+
+            }  
             }
         else{
             String input = JOptionPane.showInputDialog(null,"Enter New Text",
@@ -85,12 +105,14 @@ public class addRow implements ActionListener {
                         u.setTitle(input);
                     }            
                 }
-                UserGroup.getInstance().writeSuperCsv("userprofile.csv");
+               // UserGroup.getInstance().writeSuperCsv("userprofile.csv");
 }
         
         else {System.out.println("User has cancelled");}
         }
-        
+                       
+        UserGroup.getInstance().writeSuperCsv("userprofile.csv");
+
 
     }
 }
