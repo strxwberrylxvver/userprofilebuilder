@@ -29,13 +29,13 @@ private static MainViewer instance;
         JTabbedPane tabs = new JTabbedPane();
         JPanel ut = new JPanel();
         JPanel ue = new JPanel();
-        ut.setLayout(new GridLayout(3, 1));
+        ut.setLayout(new GridLayout(0, 1));
         ut.setBorder(BorderFactory.createTitledBorder("Title"));
-        ue.setLayout(new GridLayout(3, 1));
+        ue.setLayout(new GridLayout(0, 1));
         ue.setBorder(BorderFactory.createTitledBorder("Email"));
 
         JPanel mypanel = new JPanel();
-        mypanel.setLayout(new GridLayout(3, 1));
+        mypanel.setLayout(new GridLayout(0, 1));
         mypanel.setBorder(BorderFactory.createTitledBorder("Name"));
 
         addRow ad1 = new addRow("name",mypanel,180);

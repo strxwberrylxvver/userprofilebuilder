@@ -11,9 +11,11 @@ import userprofilebuilder.model.UserGroup;
 
 public class addRow implements ActionListener {
     String value = "";
+    User user;
     
     public  addRow(String attribute, JPanel panel, int jsize)
     {
+        this.user = user;
 
         for (User u: UserGroup.getInstance().getUsers()) {
             if ("name".equals(attribute))
@@ -35,6 +37,8 @@ public class addRow implements ActionListener {
             rows1.add(e);
             JButton d = new JButton("Delete");
             d.setPreferredSize(new Dimension(70, 25));
+            d.addActionListener(this);
+            d.setActionCommand("Delete");
             rows1.add(d);
             rows1.repaint();
             panel.add(rows1, BorderLayout.CENTER);
@@ -44,38 +48,49 @@ public class addRow implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e)
     {
-        String input = JOptionPane.showInputDialog(null,"Enter New Text",e.getActionCommand());
-        System.out.println(input);
-
-        if (input != null){
-            JButton button = (JButton) e.getSource();
-            JPanel parentPanel = (JPanel) button.getParent();
-            JRadioButton radioButton = (JRadioButton) parentPanel.getComponent(0);
-            radioButton.setText(input);
-            button.setActionCommand(radioButton.getText());
-            System.out.println("User input: " + input);
-            for (User u: UserGroup.getInstance().getUsers())
+        if (e.getActionCommand().equals("Delete")){
+            int response = JOptionPane.showConfirmDialog(null, "Would you like to delete?");
+            if (response == JOptionPane.YES_OPTION)
             {
-                if (u.getName().equals(e.getActionCommand()))
-                {
-                    u.setName(input);
-                }     
-                if (u.getEMail().equals(e.getActionCommand()))
-                {
-                    u.setEMail(input);
-                }
-                if (u.getUserProfileID().equals(e.getActionCommand()))
-                {
-                    u.setUserProfileID(input);
-                }
-                if (u.getTitle().equals(e.getActionCommand()))
-                {
-                    u.setTitle(input);
-                }            
+                UserGroup.getInstance().getUsers().remove(user);
+                System.out.println(UserGroup.getInstance().getUsers().remove(user));
             }
-            UserGroup.getInstance().writeSuperCsv("userprofile.csv");
-        }
+            }
+        else{
+            String input = JOptionPane.showInputDialog(null,"Enter New Text",
+                    e.getActionCommand());
+            if (input != null){
+                JButton button = (JButton) e.getSource();
+                JPanel parentPanel = (JPanel) button.getParent();
+                JRadioButton radioButton = (JRadioButton) parentPanel.getComponent(0);
+                radioButton.setText(input);
+                button.setActionCommand(radioButton.getText());
+                System.out.println("User input: " + input);
+                for (User u: UserGroup.getInstance().getUsers())
+                {
+                    if (u.getName().equals(e.getActionCommand()))
+                    {
+                        u.setName(input);
+                    }     
+                    if (u.getEMail().equals(e.getActionCommand()))
+                    {
+                        u.setEMail(input);
+                    }
+                    if (u.getUserProfileID().equals(e.getActionCommand()))
+                    {
+                        u.setUserProfileID(input);
+                    }
+                    if (u.getTitle().equals(e.getActionCommand()))
+                    {
+                        u.setTitle(input);
+                    }            
+                }
+                UserGroup.getInstance().writeSuperCsv("userprofile.csv");
+}
+        
         else {System.out.println("User has cancelled");}
+        }
+        
 
     }
 }
