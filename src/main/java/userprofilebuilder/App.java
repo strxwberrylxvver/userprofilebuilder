@@ -13,7 +13,6 @@ public class App {
     public static void main(String[] args) {
         UserGroup.getInstance().readSuperCsv("userprofile.csv");
         MainViewer mv = MainViewer.getInstance();
-
     }
     
 }

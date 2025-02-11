@@ -15,7 +15,6 @@ public class addRow implements ActionListener {
 
     public  addRow(String attribute, JPanel panel, int jsize)
     {
-
         for (User u: UserGroup.getInstance().getUsers()) {
             this.u = u;
             if ("name".equals(attribute))
@@ -47,12 +46,13 @@ public class addRow implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        JButton button = (JButton) e.getSource();
+        JPanel parentPanel = (JPanel) button.getParent();
+        JRadioButton radioButton = (JRadioButton) parentPanel.getComponent(0);
+
         if (e.getActionCommand().equals("Delete")) {
             int response = JOptionPane.showConfirmDialog(null, "Would you like to delete?");
             if (response == JOptionPane.YES_OPTION) {
-                JButton button = (JButton) e.getSource();
-                JPanel parentPanel = (JPanel) button.getParent();
-                JRadioButton radioButton = (JRadioButton) parentPanel.getComponent(0);
                 String username = radioButton.getText();
 
                 for (User u : UserGroup.getInstance().getUsers()) {
@@ -68,16 +68,11 @@ public class addRow implements ActionListener {
                     }
                 }
             }
-
         }
-
         else{
             String input = JOptionPane.showInputDialog(null,"Enter New Text",
                     e.getActionCommand());
             if (input != null){
-                JButton button = (JButton) e.getSource();
-                JPanel parentPanel = (JPanel) button.getParent();
-                JRadioButton radioButton = (JRadioButton) parentPanel.getComponent(0);
                 radioButton.setText(input);
                 button.setActionCommand(radioButton.getText());
                 System.out.println("User input: " + input);
@@ -100,12 +95,11 @@ public class addRow implements ActionListener {
                         u.setTitle(input);
                     }
                 }
-}
-
-        else {System.out.println("User has cancelled");}
+            }
+        else {
+            System.out.println("User has cancelled");
+        }
         }
         UserGroup.getInstance().writeSuperCsv("userprofile.csv");
     }
-
-
 }

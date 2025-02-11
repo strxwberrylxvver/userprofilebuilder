@@ -50,7 +50,6 @@ private static MainViewer instance;
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }
 
-
             public void refresh() {
                 ut.removeAll();
                 ue.removeAll();

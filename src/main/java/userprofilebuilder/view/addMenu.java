@@ -85,8 +85,6 @@ public class addMenu extends JMenuBar implements ActionListener{
                 System.out.println("Quit");
                 System.exit(0);
                 break;
-
-
                 }
     }
 }
