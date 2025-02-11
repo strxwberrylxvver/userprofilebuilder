@@ -53,8 +53,6 @@ public class addRow implements ActionListener {
         if (e.getActionCommand().equals("Delete")) {
             int response = JOptionPane.showConfirmDialog(null, "Would you like to delete?");
             if (response == JOptionPane.YES_OPTION) {
-                String username = radioButton.getText();
-
                 for (User u : UserGroup.getInstance().getUsers()) {
                     if (u.getName().equals(value) || u.getEMail().equals(value) || u.getTitle().equals(value)){
                         UserGroup.getInstance().getUsers().remove(u);

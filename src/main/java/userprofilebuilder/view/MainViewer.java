@@ -36,11 +36,11 @@ private static MainViewer instance;
         mypanel.setLayout(new GridLayout(0, 1));
         mypanel.setBorder(BorderFactory.createTitledBorder("Name"));
 
-        addRow ad1 = new addRow("name",mypanel,180);
-        addRow ad2 = new addRow("title",ut,60);
-        addRow ad3 = new addRow("email",ue,200);
+        new addRow("name",mypanel,180);
+        new addRow("title",ut,60);
+        new addRow("email",ue,200);
         
-        addMenu menu = new addMenu(this);
+        new addMenu(this);
         
         tabs.addTab("User Title", ut);
         tabs.addTab("User Email", ue);
