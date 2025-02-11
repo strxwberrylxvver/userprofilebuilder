@@ -5,15 +5,13 @@
 package userprofilebuilder.view;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.*;
-
-import userprofilebuilder.model.User;
-import userprofilebuilder.model.UserGroup;
 
 public class MainViewer extends JFrame {
 private static MainViewer instance;
+    JPanel ut;
+    JPanel ue;
+    JPanel mypanel;
 
     public static MainViewer getInstance(){
         if (instance == null)
@@ -27,14 +25,14 @@ private static MainViewer instance;
         this.setLayout(new BorderLayout());
 
         JTabbedPane tabs = new JTabbedPane();
-        JPanel ut = new JPanel();
-        JPanel ue = new JPanel();
+        ut = new JPanel();
+        ue = new JPanel();
         ut.setLayout(new GridLayout(0, 1));
         ut.setBorder(BorderFactory.createTitledBorder("Title"));
         ue.setLayout(new GridLayout(0, 1));
         ue.setBorder(BorderFactory.createTitledBorder("Email"));
 
-        JPanel mypanel = new JPanel();
+        mypanel = new JPanel();
         mypanel.setLayout(new GridLayout(0, 1));
         mypanel.setBorder(BorderFactory.createTitledBorder("Name"));
 
@@ -50,6 +48,24 @@ private static MainViewer instance;
         this.add(tabs, BorderLayout.CENTER);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        }
+
+
+            public void refresh() {
+                ut.removeAll();
+                ue.removeAll();
+                mypanel.removeAll();
+
+                new addRow("name", mypanel, 180);
+                new addRow("title", ut, 60);
+                new addRow("email", ue, 200);
+
+                ut.revalidate();
+                ut.repaint();
+                ue.revalidate();
+                ue.repaint();
+                mypanel.revalidate();
+                mypanel.repaint();
         }
 
 }

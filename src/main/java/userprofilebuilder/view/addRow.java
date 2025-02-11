@@ -13,7 +13,6 @@ public class addRow implements ActionListener {
     String value = "";
     User u;
 
-    
     public  addRow(String attribute, JPanel panel, int jsize)
     {
 
@@ -47,35 +46,31 @@ public class addRow implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e)
-    {
-        if (e.getActionCommand().equals("Delete")){
+    public void actionPerformed(ActionEvent e) {
+        if (e.getActionCommand().equals("Delete")) {
             int response = JOptionPane.showConfirmDialog(null, "Would you like to delete?");
-            if (response == JOptionPane.YES_OPTION)
-            {
+            if (response == JOptionPane.YES_OPTION) {
                 JButton button = (JButton) e.getSource();
                 JPanel parentPanel = (JPanel) button.getParent();
                 JRadioButton radioButton = (JRadioButton) parentPanel.getComponent(0);
-                String userProfileID = radioButton.getText();
-                UserGroup.getInstance().getUsers().removeIf(u -> u.getUserProfileID().equals(userProfileID));
-                System.out.println("User deleted: " + userProfileID);
-                JPanel panel = (JPanel) parentPanel.getParent();
-               // UserGroup.getInstance()
+                String username = radioButton.getText();
 
-
-            
-            
-//                  for (User u : UserGroup.getInstance().getUsers()) {
-//                  if (u.getUserProfileID().equals(radioButton.getText())) {
-//                       UserGroup.getInstance().getUsers().remove(u);
-//                  }}
-//                  parentPanel.removeAll();
-//                  parentPanel.revalidate();
-//                  parentPanel.repaint();
-//                  System.out.println("User deleted: " + u.getUserProfileID());
-
-            }  
+                for (User u : UserGroup.getInstance().getUsers()) {
+                    if (u.getName().equals(value) || u.getEMail().equals(value) || u.getTitle().equals(value)){
+                        UserGroup.getInstance().getUsers().remove(u);
+                        JPanel parentContainer = (JPanel) parentPanel.getParent();
+                        parentContainer.remove(parentPanel);
+                        parentContainer.revalidate();
+                        parentContainer.repaint();
+                        MainViewer.getInstance().refresh();
+                        System.out.println("User deleted: " + u.getName());
+                        break;
+                    }
+                }
             }
+
+        }
+
         else{
             String input = JOptionPane.showInputDialog(null,"Enter New Text",
                     e.getActionCommand());
@@ -91,7 +86,7 @@ public class addRow implements ActionListener {
                     if (u.getName().equals(e.getActionCommand()))
                     {
                         u.setName(input);
-                    }     
+                    }
                     if (u.getEMail().equals(e.getActionCommand()))
                     {
                         u.setEMail(input);
@@ -103,16 +98,14 @@ public class addRow implements ActionListener {
                     if (u.getTitle().equals(e.getActionCommand()))
                     {
                         u.setTitle(input);
-                    }            
+                    }
                 }
-               // UserGroup.getInstance().writeSuperCsv("userprofile.csv");
 }
-        
+
         else {System.out.println("User has cancelled");}
         }
-                       
         UserGroup.getInstance().writeSuperCsv("userprofile.csv");
-
-
     }
+
+
 }
