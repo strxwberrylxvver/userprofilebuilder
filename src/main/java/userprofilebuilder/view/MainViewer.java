@@ -26,7 +26,7 @@ private static MainViewer instance;
         this.setSize(500, 400);
         this.setLayout(new BorderLayout());
 
-        MainViewer.getInstance().addPanel();
+        this.addPanel();
         new addMenu(this);
         
         tabs.addTab("User Title", titlepanel);
@@ -38,7 +38,6 @@ private static MainViewer instance;
         }
 
         public void addPanel() {
-
         if (titlepanel != null || emailpanel != null || namepanel != null) {
             titlepanel.removeAll();
             emailpanel.removeAll();
@@ -56,12 +55,14 @@ private static MainViewer instance;
         new addRow("title", titlepanel,60);
         new addRow("email",emailpanel,200);
 
-                //namepanel.revalidate();
-                //namepanel.repaint();
-                //titlepanel.revalidate();
-                //titlepanel.repaint();
-                //emailpanel.revalidate();
-               // emailpanel.repaint();
+        titlepanel.revalidate();
+        emailpanel.revalidate();
+        namepanel.revalidate();
+        titlepanel.repaint();
+        emailpanel.repaint();
+        namepanel.repaint();
+        this.revalidate();
+        this.repaint();
         }
 
 }

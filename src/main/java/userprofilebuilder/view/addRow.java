@@ -12,6 +12,7 @@ import userprofilebuilder.model.UserGroup;
 public class addRow implements ActionListener {
     String value = "";
     User u;
+    ButtonGroup bg= new ButtonGroup();
 
     public  addRow(String attribute, JPanel panel, int jsize)
     {
@@ -39,6 +40,7 @@ public class addRow implements ActionListener {
             d.addActionListener(this);
             d.setActionCommand("Delete");
             rows1.add(d);
+            bg.add(j);
             rows1.repaint();
             panel.add(rows1, BorderLayout.CENTER);
         }
