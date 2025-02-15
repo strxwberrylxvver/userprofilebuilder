@@ -42,8 +42,12 @@ public class User {
         this.EMail = EMail;
     }
 
-    public User(String name) {
-        this.Name = name;
+    public User(String UserProfileID,String Title,String Name,String EMail) {
+        this.UserProfileID = UserProfileID;
+        this.Title = Title;
+        this.Name = Name;
+        this.EMail = EMail;
+
     }
     
     @Override

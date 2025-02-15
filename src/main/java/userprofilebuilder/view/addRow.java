@@ -60,12 +60,12 @@ public class addRow implements ActionListener {
                         parentContainer.remove(parentPanel);
                         parentContainer.revalidate();
                         parentContainer.repaint();
-                        MainViewer.getInstance().refresh();
                         System.out.println("User deleted: " + u.getName());
                         break;
                     }
                 }
             }
+            MainViewer.getInstance().addPanel();
         }
         else{
             String input = JOptionPane.showInputDialog(null,"Enter New Text",

@@ -9,9 +9,10 @@ import javax.swing.*;
 
 public class MainViewer extends JFrame {
 private static MainViewer instance;
-    JPanel ut;
-    JPanel ue;
-    JPanel mypanel;
+    JPanel titlepanel = new JPanel();
+    JPanel emailpanel = new JPanel();
+    JPanel namepanel = new JPanel();
+    JTabbedPane tabs = new JTabbedPane();
 
     public static MainViewer getInstance(){
         if (instance == null)
@@ -19,52 +20,48 @@ private static MainViewer instance;
         }
         return instance;
     }
+
     private MainViewer() {
         this.setTitle("User Profile Builder");
         this.setSize(500, 400);
         this.setLayout(new BorderLayout());
 
-        JTabbedPane tabs = new JTabbedPane();
-        ut = new JPanel();
-        ue = new JPanel();
-        ut.setLayout(new GridLayout(0, 1));
-        ut.setBorder(BorderFactory.createTitledBorder("Title"));
-        ue.setLayout(new GridLayout(0, 1));
-        ue.setBorder(BorderFactory.createTitledBorder("Email"));
-
-        mypanel = new JPanel();
-        mypanel.setLayout(new GridLayout(0, 1));
-        mypanel.setBorder(BorderFactory.createTitledBorder("Name"));
-
-        new addRow("name",mypanel,180);
-        new addRow("title",ut,60);
-        new addRow("email",ue,200);
-        
+        MainViewer.getInstance().addPanel();
         new addMenu(this);
         
-        tabs.addTab("User Title", ut);
-        tabs.addTab("User Email", ue);
-        tabs.add(mypanel, "User Name");
+        tabs.addTab("User Title", titlepanel);
+        tabs.addTab("User Email", emailpanel);
+        tabs.add(namepanel, "User Name");
         this.add(tabs, BorderLayout.CENTER);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }
 
-            public void refresh() {
-                ut.removeAll();
-                ue.removeAll();
-                mypanel.removeAll();
+        public void addPanel() {
 
-                new addRow("name", mypanel, 180);
-                new addRow("title", ut, 60);
-                new addRow("email", ue, 200);
+        if (titlepanel != null || emailpanel != null || namepanel != null) {
+            titlepanel.removeAll();
+            emailpanel.removeAll();
+            namepanel.removeAll();
+        }
 
-                ut.revalidate();
-                ut.repaint();
-                ue.revalidate();
-                ue.repaint();
-                mypanel.revalidate();
-                mypanel.repaint();
+        namepanel.setLayout(new GridLayout(0, 1));
+        namepanel.setBorder(BorderFactory.createTitledBorder("Name"));
+        titlepanel.setLayout(new GridLayout(0, 1));
+        titlepanel.setBorder(BorderFactory.createTitledBorder("Title"));
+        emailpanel.setLayout(new GridLayout(0, 1));
+        emailpanel.setBorder(BorderFactory.createTitledBorder("Email"));
+
+        new addRow("name", namepanel,180);
+        new addRow("title", titlepanel,60);
+        new addRow("email",emailpanel,200);
+
+                //namepanel.revalidate();
+                //namepanel.repaint();
+                //titlepanel.revalidate();
+                //titlepanel.repaint();
+                //emailpanel.revalidate();
+               // emailpanel.repaint();
         }
 
 }

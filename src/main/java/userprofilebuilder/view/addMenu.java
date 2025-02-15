@@ -73,10 +73,6 @@ public class addMenu extends JMenuBar implements ActionListener{
                 if(returnval == JFileChooser.APPROVE_OPTION) {
                     System.out.println("You chose to save this file: " +
                             choose.getSelectedFile().getName());
-                    /*for (User u : UserGroup.getInstance().getUsers())
-                    {
-                        System.out.println(u);
-                    }*/
                     UserGroup.getInstance().writeSuperCsv(choose.getSelectedFile().getName());
                 }
                 break;

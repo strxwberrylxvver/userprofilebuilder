@@ -43,11 +43,7 @@ public void readSuperCsv(String filename)
             {
                 String lines = br.readLine();
                 String[] v = lines.split(",");
-                User user = new User(v[2]);
-                user.setUserProfileID(v[0]);
-                user.setTitle(v[1]);
-                user.setEMail(v[3]);
-                users.add(user);
+                users.add(new User(v[0],v[1],v[2],v[3]));
             }
         }
         catch(Exception e)
