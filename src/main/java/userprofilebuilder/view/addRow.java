@@ -76,6 +76,7 @@ public class addRow implements ActionListener {
                             UserGroup.getInstance().getUsers().remove(u);
                             JPanel parentContainer = (JPanel) parentPanel.getParent();
                             parentContainer.remove(parentPanel);
+
                             parentContainer.revalidate();
                             parentContainer.repaint();
                             System.out.println("User deleted: " + u.getName());
@@ -85,6 +86,7 @@ public class addRow implements ActionListener {
                 }
                 MainViewer.getInstance().addPanel();
                 UserGroup.getInstance().writeSuperCsv("userprofile.csv");
+                UserGroup.getInstance().setSelectedUser(null);
                 break;
 
             case "Edit":
@@ -117,44 +119,7 @@ public class addRow implements ActionListener {
                 break;
 
             case "Choose":
-                JRadioButton rb = (JRadioButton) e.getSource();
-                JPanel pp = (JPanel) rb.getParent();
-                JPanel pc = (JPanel) pp.getParent();
-                String selectedValue = rb.getText();
-
-                for (User u : UserGroup.getInstance().getUsers())
-                {
-                        if (selectedValue.equals(u.getName()) && rb.getText().equals(u.getName())) {
-                            rb.setSelected(true);
-                        } else if (selectedValue.equals(u.getTitle()) && rb.getText().equals(u.getTitle())) {
-                            rb.setSelected(true);
-                        } else if (selectedValue.equals(u.getEMail()) && rb.getText().equals(u.getEMail())) {
-                            rb.setSelected(true);
-                        }
-//                    if (rb.equals(u.getName()) || rb.equals(u.getTitle()) || rb.equals(u.getEMail()))
-//                    {
-//                        int index = UserGroup.getInstance().getUsers().indexOf(u);
-//                        rb.setSelected(true);
-                }
-                System.out.println(rb.getText());
-                pc.revalidate();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                UserGroup.getInstance().setSelectedUser(u);
 
                 /*int index = UserGroup.getInstance().getUsers().indexOf(this.u);
                     for (JPanel panel : Arrays.asList(MainViewer.getInstance().getNamePanel(),

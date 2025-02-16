@@ -1,5 +1,7 @@
 package userprofilebuilder.view;
 
+import userprofilebuilder.model.UserGroup;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,7 +25,13 @@ public class UserProfileButtonPanel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         switch(e.getActionCommand()){
             case "Display Profile":
-                System.out.println("Display Profile");
+                if (UserGroup.getInstance().getSelectedUser() != null)
+                {
+                    System.out.println(UserGroup.getInstance().getSelectedUser().getFormattedText());
+                }
+                else {
+                    System.out.println("Null - No User Selected");
+                }
                 break;
 
             case "Add Profile":

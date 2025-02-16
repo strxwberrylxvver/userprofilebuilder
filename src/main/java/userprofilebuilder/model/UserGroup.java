@@ -14,6 +14,7 @@ public class UserGroup {
     
     private ArrayList<User> users = new ArrayList<>();
     private static UserGroup instance;
+    private User selectedUser = null;
     
     private UserGroup(){    
     }
@@ -66,5 +67,13 @@ public void readSuperCsv(String filename)
         {
             e.printStackTrace();
         }
+    }
+
+    public User getSelectedUser() {
+        return selectedUser;
+    }
+
+    public void setSelectedUser(User selectedUser) {
+        this.selectedUser = selectedUser;
     }
 }

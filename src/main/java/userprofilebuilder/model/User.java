@@ -49,7 +49,16 @@ public class User {
         this.EMail = EMail;
 
     }
-    
+
+    public String getFormattedText()
+    {
+        //StringBuffer out = new StringBuffer();
+        return   "{\n" + "profile: " + this.UserProfileID + "\n" +
+                "title: " + this.Title + "\n" + "name: " + this.Name + "\n"+ "email: " + this.EMail+"\n}";
+
+
+    }
+
     @Override
     public String toString()
     {
