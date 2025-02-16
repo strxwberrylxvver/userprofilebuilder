@@ -15,7 +15,6 @@ public class addRow implements ActionListener {
     String value = "";
     User u;
     ButtonGroup bg = new ButtonGroup();
-    ArrayList<JPanel>rows = new ArrayList();
     JPanel row;
 
     public addRow(String attribute, JPanel panel, int jsize) {
@@ -54,7 +53,6 @@ public class addRow implements ActionListener {
             row.add(d);
 
             bg.add(j);
-            rows.add(row);
             row.repaint();
             panel.add(row, BorderLayout.CENTER);
         }
@@ -120,6 +118,7 @@ public class addRow implements ActionListener {
 
             case "Choose":
                 String selected = ((JRadioButton) e.getSource()).getText();
+                int index= UserGroup.getInstance().getUsers().indexOf(u);
                 for (JPanel panel : Arrays.asList(MainViewer.getInstance().getNamePanel(),
                            MainViewer.getInstance().getTitlePanel(),
                             MainViewer.getInstance().getEmailPanel()))
