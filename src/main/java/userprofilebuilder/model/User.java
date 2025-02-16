@@ -56,7 +56,6 @@ public class User {
         return   "{\n" + "profile: " + this.UserProfileID + "\n" +
                 "title: " + this.Title + "\n" + "name: " + this.Name + "\n"+ "email: " + this.EMail+"\n}";
 
-
     }
 
     @Override
