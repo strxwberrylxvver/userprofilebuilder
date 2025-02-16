@@ -19,7 +19,6 @@ public class UserProfileButtonPanel extends JPanel implements ActionListener {
         this.add(display);
         this.add(addp);
 
-
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -35,7 +34,8 @@ public class UserProfileButtonPanel extends JPanel implements ActionListener {
                 break;
 
             case "Add Profile":
-                System.out.println("Add Profile");
+                JFrame parentFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+                new AddUserDialog(parentFrame);
                 break;
 
         }
