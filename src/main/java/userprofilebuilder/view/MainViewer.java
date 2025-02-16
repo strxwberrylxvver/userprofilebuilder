@@ -15,6 +15,19 @@ private static MainViewer instance;
     JTabbedPane tabs = new JTabbedPane();
     UserProfileButtonPanel upbpanel = new UserProfileButtonPanel();
 
+    public JPanel getNamePanel()
+    {
+        return this.namepanel;
+    }
+    public JPanel getEmailPanel()
+    {
+        return this.emailpanel;
+    }
+    public JPanel getTitlePanel()
+    {
+        return this.titlepanel;
+    }
+
     public static MainViewer getInstance(){
         if (instance == null)
         {instance = new MainViewer();

@@ -36,6 +36,7 @@ public class UserGroup {
     public void addUser(User user) {
         users.add(user);
     }
+
     
 public void readSuperCsv(String filename)
 {

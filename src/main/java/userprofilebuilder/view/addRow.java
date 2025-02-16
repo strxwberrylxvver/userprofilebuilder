@@ -42,7 +42,6 @@ public class addRow implements ActionListener {
             j.addActionListener(this);
             j.setActionCommand("Choose");
             row.add(j);
-            bg.add(j);
 
             e.setPreferredSize(new Dimension(65, 25));
             e.addActionListener(this);
@@ -54,6 +53,7 @@ public class addRow implements ActionListener {
             d.setActionCommand("Delete");
             row.add(d);
 
+            bg.add(j);
             rows.add(row);
             row.repaint();
             panel.add(row, BorderLayout.CENTER);
@@ -119,22 +119,20 @@ public class addRow implements ActionListener {
                 break;
 
             case "Choose":
-                UserGroup.getInstance().setSelectedUser(u);
-
-                /*int index = UserGroup.getInstance().getUsers().indexOf(this.u);
-                    for (JPanel panel : Arrays.asList(MainViewer.getInstance().getNamePanel(),
-                            MainViewer.getInstance().getTitlePanel(),
-                            MainViewer.getInstance().getEmailPanel())) {
-                        for (Component comp : panel.getComponents()) {
+                String selected = ((JRadioButton) e.getSource()).getText();
+                for (JPanel panel : Arrays.asList(MainViewer.getInstance().getNamePanel(),
+                           MainViewer.getInstance().getTitlePanel(),
+                            MainViewer.getInstance().getEmailPanel()))
+                    {
+                        for (Component comp : panel.getComponents())
+                        {
                                 JPanel rowPanel = (JPanel) comp;
                                 JRadioButton radioButton3 = (JRadioButton) rowPanel.getComponent(0);
-                                if (radioButton3.getText().equals(u.getName()) ||
-                                        radioButton3.getText().equals(u.getTitle()) ||
-                                        radioButton3.getText().equals(u.getEMail())) {
-                                        radioButton3.setSelected(true);
-                                    }
-                                }
-                        }*/
+                            if (radioButton3.getText().equals(selected)) {
+                                radioButton3.setSelected(true);
+                            }
+                        }
+                    }
                 break;
         }
     }
