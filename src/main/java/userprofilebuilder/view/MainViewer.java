@@ -13,6 +13,7 @@ private static MainViewer instance;
     JPanel emailpanel = new JPanel();
     JPanel namepanel = new JPanel();
     JTabbedPane tabs = new JTabbedPane();
+    UserProfileButtonPanel upbpanel = new UserProfileButtonPanel();
 
     public static MainViewer getInstance(){
         if (instance == null)
@@ -28,6 +29,7 @@ private static MainViewer instance;
 
         this.addPanel();
         new addMenu(this);
+        this.add(upbpanel, BorderLayout.SOUTH);
         
         tabs.addTab("User Title", titlepanel);
         tabs.addTab("User Email", emailpanel);
