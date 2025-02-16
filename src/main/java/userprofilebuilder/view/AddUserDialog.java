@@ -1,5 +1,6 @@
 package userprofilebuilder.view;
 
+import userprofilebuilder.model.User;
 import userprofilebuilder.model.UserGroup;
 
 import javax.swing.*;
@@ -12,6 +13,11 @@ public class AddUserDialog extends JDialog implements ActionListener {
     JPanel textbox = new JPanel(new GridLayout(4, 1, 5, 5));
     JPanel names = new JPanel(new GridLayout(4, 1, 5, 5));
     JPanel option = new JPanel(new FlowLayout());
+    JTextField profile = new JTextField("Enter Profile Name");
+    JTextField title = new JTextField("Enter Title");
+    JTextField name = new JTextField("Enter Name");
+    JTextField email = new JTextField("Enter eMail");
+
     JButton ok = new JButton("OK");
     JButton cancel = new JButton("Cancel");
 
@@ -27,10 +33,10 @@ public class AddUserDialog extends JDialog implements ActionListener {
         names.add(new JLabel("name"));
         names.add(new JLabel("email"));
 
-        textbox.add(new JTextField("Enter Profile Name"));
-        textbox.add(new JTextField("Enter Title"));
-        textbox.add(new JTextField("Enter Name"));
-        textbox.add(new JTextField("Enter eMail"));
+        textbox.add(profile);
+        textbox.add(title);
+        textbox.add(name);
+        textbox.add(email);
 
         option.add(ok);
         option.add(cancel);
@@ -53,8 +59,20 @@ public class AddUserDialog extends JDialog implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         switch(e.getActionCommand()){
             case "OK":
+                String p = profile.getText().trim();
+                String t = title.getText().trim();
+                String n = name.getText().trim();
+                String em = email.getText().trim();
+
+                User newUser = new User(p, t, n, em);
+                UserGroup.getInstance().addUser(newUser);
+                UserGroup.getInstance().writeSuperCsv("userprofile.csv");
+
                 JOptionPane.showMessageDialog(this, "User added!");
                 dispose();
+
+                this.removeAll();
+                MainViewer.getInstance().addPanel();
                 break;
 
             case "Cancel":

@@ -32,8 +32,10 @@ public class UserGroup {
     public void setUsers(ArrayList<User> users) {
         this.users = users;
     }
-    
 
+    public void addUser(User user) {
+        users.add(user);
+    }
     
 public void readSuperCsv(String filename)
 {

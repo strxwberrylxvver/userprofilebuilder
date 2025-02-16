@@ -1,5 +1,6 @@
 package userprofilebuilder.view;
 
+import userprofilebuilder.model.User;
 import userprofilebuilder.model.UserGroup;
 
 import javax.swing.*;
@@ -9,6 +10,7 @@ import java.awt.event.ActionListener;
 public class UserProfileButtonPanel extends JPanel implements ActionListener {
     JButton display = new JButton("Display Profile");
     JButton addp = new JButton("Add Profile");
+    User u;
 
     public UserProfileButtonPanel()
     {
@@ -27,6 +29,7 @@ public class UserProfileButtonPanel extends JPanel implements ActionListener {
                 if (UserGroup.getInstance().getSelectedUser() != null)
                 {
                     System.out.println(UserGroup.getInstance().getSelectedUser().getFormattedText());
+                    JOptionPane.showMessageDialog(this, "Hello, display coming soon" );
                 }
                 else {
                     System.out.println("Null - No User Selected");
